@@ -17,6 +17,9 @@ const Container = styled.footer`
     width: 100%;
     padding: ${Variables.Margins.M} 5vw;
     background-color: ${Variables.Colors.DarkGray};
+    position: relative;
+    z-index: 2;
+    color: ${Variables.Colors.White};
 `
 
 const Row = styled.div`
@@ -76,7 +79,7 @@ function Footer() {
         <Container>
             <Row>
                 <Col>
-                    <Font.H3>Contact me here</Font.H3>
+                    <Font.H3>{UiTexts.TextContact}</Font.H3>
 
                     <Font.P>
                         <Link href={`mailto:${SiteData.Email}`}>
@@ -86,20 +89,22 @@ function Footer() {
                 </Col>
 
                 <Col>
-                    <Font.H3>Follow me there</Font.H3>
+                    <Font.H3>{UiTexts.TextFollow}</Font.H3>
                     <List>
-                        {SocialLinks.map(link => (
-                            <li key={link.id}>
-                                <Link
-                                    href={link.url}
-                                    target="_blank"
-                                    rel="noreferrer noopener"
-                                >
-                                    {link.name.charAt(0).toUpperCase() +
-                                        link.name.slice(1)}
-                                </Link>
-                            </li>
-                        ))}
+                        {SocialLinks.filter(e => e.name !== "email").map(
+                            link => (
+                                <li key={link.id}>
+                                    <Link
+                                        href={link.url}
+                                        target="_blank"
+                                        rel="noreferrer noopener"
+                                    >
+                                        {link.name.charAt(0).toUpperCase() +
+                                            link.name.slice(1)}
+                                    </Link>
+                                </li>
+                            )
+                        )}
                     </List>
                 </Col>
             </Row>

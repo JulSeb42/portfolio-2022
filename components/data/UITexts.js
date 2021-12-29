@@ -3,11 +3,22 @@ import SiteData from "./SiteData"
 
 const UiTexts = {
     ButtonCv: "Check my CV",
+
+    // Footer
+    TextContact: "Contact me here",
+    TextFollow: "Follow me there",
     CopyFooter: `© ${SiteData.Author} | ${SiteData.Year}`,
 
-    // Intro
+    // Homepage
+    TitleHome: "Home",
+    DescHome:
+        "Homepage of Julien Sebag's portfolio, UX / UI / Web Designer based in Berlin, Germany.",
+    KeywordsHome: "ux, ui, design, front end, designer, portfolio, berlin",
     IntroHome:
         "I'm a UX engineer, formerly UI designer who decided to join the dark side of the Force.",
+    Typed1: "UX Engineer",
+    Typed2: "UI Designer",
+    Typed3: "Front End Developer",
 
     // About
     About1: "Hi I'm Julien, a French UX Engineer based in Berlin, Germany.",
@@ -19,14 +30,8 @@ const UiTexts = {
     Contact2:
         "At the moment, I’m based in Berlin, Germany. You can contact me anytime via any social network or by email!",
 
-    // Homepage
-    TitleHome: "Home",
-    DescHome:
-        "Homepage of Julien Sebag's portfolio, UX / UI / Web Designer based in Berlin, Germany.",
-    KeywordsHome: "ux, ui, design, front end, designer, portfolio, berlin",
-
     // Projects
-    TitleSkills: "Skills",
+    TitleSkills: "Technologies",
     TitleDates: "Dates",
     LinkBehance: "See the full project on Behance",
     NextProject: "Next project",

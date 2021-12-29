@@ -9,7 +9,6 @@ import * as Variables from "../styles/Variables"
 const ButtonCv = styled(Link)`
     font-size: ${Variables.FontSizes.TitlesS};
     text-decoration: none;
-    color: ${Variables.Colors.Background};
     background-color: ${Variables.Colors.White20};
     ${Variables.Effects.Blur};
     padding: ${Variables.Margins.S} ${Variables.Margins.M};
@@ -18,6 +17,7 @@ const ButtonCv = styled(Link)`
     border: 1px solid ${Variables.Colors.White};
     display: inline-block;
     transition: ${Variables.Transitions.Short};
+    color: ${Variables.Colors.Black};
 
     &:hover {
         box-shadow: ${Variables.Shadows.Button};

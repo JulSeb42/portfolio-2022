@@ -86,8 +86,8 @@ export const List = styled.ul`
         &:before {
             ${IconMixin({
                 icon: "chevron-right",
-                size: "14px",
-                color: Variables.Colors.White,
+                size: 14,
+                color: "currentColor",
             })};
             margin-top: 4px;
         }

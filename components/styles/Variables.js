@@ -1,6 +1,9 @@
 // Colors
 export const Colors = {
-    Background: "#0A0A0A",
+    // Background: "#0A0A0A",
+    // Font: "#FFF",
+    Background: "#FFF",
+    Font: "#0A0A0A",
     Border: "#333",
     White: "#FFF",
     White70: "rgba(255, 255, 255, 0.7)",
@@ -16,6 +19,8 @@ export const Colors = {
     Green: "#139A43",
     Yellow: "#E6E49f",
     Blue: "#279Af1",
+    Overlay:
+        "linear-gradient(0deg, rgba(0,0,0,0.7) 0%, rgba(255,255,255,0) 100%)",
 }
 
 // Shadows
@@ -42,7 +47,7 @@ export const Margins = {
 
 // Fonts
 export const FontFamilies = {
-    Body: "'DM Sans', sans-serif",
+    Body: "'Space Grotesk', sans-serif;",
 }
 
 export const FontSizes = {
@@ -62,12 +67,12 @@ export const FontSizes = {
 // Font weights
 export const FontWeights = {
     Regular: 400,
-    Medium: 500,
-    Bold: 700,
+    Medium: 700,
+    Bold: 900,
 }
 
 // Line height
-export const LineHeight = 1.4
+export const LineHeight = 1.5
 
 export const Radiuses = {
     XL: "16px",

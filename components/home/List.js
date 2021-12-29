@@ -9,7 +9,7 @@ const List = styled.div`
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: ${Variables.Margins.L};
-    padding: 100px;
+    padding: 3vw;
 `
 
 export default List

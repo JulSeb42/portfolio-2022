@@ -9,7 +9,7 @@ const GlobalStyles = createGlobalStyle`
         font-family: ${Variables.FontFamilies.Body};
         line-height: ${Variables.LineHeight};
         background-color: ${Variables.Colors.Background};
-        color: ${Variables.Colors.White};
+        color: ${Variables.Colors.Font};
         font-size: ${Variables.FontSizes.Body};
 
         &.stop-scrolling {

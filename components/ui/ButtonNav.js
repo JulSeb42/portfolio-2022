@@ -11,7 +11,7 @@ const Button = styled.button`
     font-size: ${Variables.FontSizes.Nav};
     border: none;
     background: none;
-    color: ${Variables.Colors.White};
+    color: ${Variables.Colors.Font};
     text-decoration: none;
     padding: 0;
     position: relative;
@@ -24,7 +24,7 @@ const Button = styled.button`
         position: absolute;
         bottom: -2px;
         left: 0;
-        background-color: ${Variables.Colors.White};
+        background-color: ${Variables.Colors.Font};
         transition: ${Variables.Transitions.Bezier};
     }
 

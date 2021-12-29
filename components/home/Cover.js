@@ -33,9 +33,9 @@ function Cover(props) {
                 <Font.H3>
                     <Typed
                         strings={[
-                            "UX Engineer",
-                            "UI Designer",
-                            "Front End Developer",
+                            UiTexts.Typed1,
+                            UiTexts.Typed2,
+                            UiTexts.Typed3,
                         ]}
                         typeSpeed={40}
                         backSpeed={20}

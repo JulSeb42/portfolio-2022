@@ -36,7 +36,7 @@ function About() {
                         target="_blank"
                         rel="noreferrer noopener"
                     >
-                        Check my CV ({cv.Lang.toUpperCase()})
+                        {UiTexts.ButtonCv} ({cv.Lang.toUpperCase()})
                     </ButtonCv>
                 ))}
             </ButtonsContainer>

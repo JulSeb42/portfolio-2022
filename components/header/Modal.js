@@ -117,7 +117,7 @@ function Modal(props) {
                     <Icon
                         name="close"
                         size={48}
-                        color={Variables.Colors.White}
+                        color={Variables.Colors.Font}
                         className="close"
                     />
                 </Button>

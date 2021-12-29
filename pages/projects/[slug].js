@@ -9,6 +9,15 @@ import matter from "gray-matter"
 // Components
 import * as Font from "../../components/styles/Font"
 import Page from "../../components/layouts/Page"
+import Cover from "../../components/projects/Cover"
+import Container from "../../components/projects/Container"
+import Info from "../../components/projects/Info"
+import Next from "../../components/projects/Next"
+
+// Components MDX
+import Section from "../../components/projects/Section"
+import FullBleed from "../../components/projects/FullBleed"
+import LinkBehance from "../../components/projects/LinkBehance"
 
 const components = {
     h3: Font.H3,
@@ -17,12 +26,23 @@ const components = {
     ul: Font.List,
     p: Font.P,
     small: Font.Small,
+    Section,
+    FullBleed,
+    LinkBehance,
 }
 
 function ProjectPage({ frontMatter, mdxSource }) {
     return (
         <Page title={frontMatter.title}>
-            <MDXRemote {...mdxSource} components={components} />
+            <Cover frontMatter={frontMatter} />
+
+            <Container>
+                <Info frontMatter={frontMatter} />
+
+                <MDXRemote {...mdxSource} components={components} />
+            </Container>
+            
+            <Next href={frontMatter.nextProject} />
         </Page>
     )
 }

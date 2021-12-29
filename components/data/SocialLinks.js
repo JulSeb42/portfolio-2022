@@ -7,7 +7,7 @@ const SocialLinks = [
         id: 0,
         name: "email",
         url: `mailto:${SiteData.Email}`,
-        color: Variables.Colors.Background,
+        color: Variables.Colors.Black,
     },
     {
         id: 1,

@@ -27,7 +27,7 @@ const Container = styled.header`
 `
 
 const Logo = styled(Link)`
-    color: ${Variables.Colors.White};
+    color: ${Variables.Colors.Font};
     text-decoration: none;
     font-weight: ${Variables.FontWeights.Bold};
     display: grid;
