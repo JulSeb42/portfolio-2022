@@ -66,6 +66,10 @@ export const P = styled.p`
             width: 100%;
         }
     }
+
+    code {
+        font-family: ${Variables.FontFamilies.Code};
+    }
 `
 
 export const Small = styled.small`

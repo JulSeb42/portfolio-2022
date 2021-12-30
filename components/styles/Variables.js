@@ -1,10 +1,7 @@
 // Colors
 export const Colors = {
-    // Background: "#0A0A0A",
-    // Font: "#FFF",
     Background: "#FFF",
     Font: "#0A0A0A",
-    Border: "#333",
     White: "#FFF",
     White70: "rgba(255, 255, 255, 0.7)",
     White20: "rgba(255, 255, 255, 0.2)",
@@ -12,13 +9,8 @@ export const Colors = {
     Black: "#0A0B08",
     DarkGray: "#333",
     DarkBlue: "#001429",
+    Blue: "#14BDEB",
 
-    // Backgrounds home
-    Red: "#ED1C24",
-    Orange: "#C44900",
-    Green: "#139A43",
-    Yellow: "#E6E49f",
-    Blue: "#279Af1",
     Overlay:
         "linear-gradient(0deg, rgba(0,0,0,0.7) 0%, rgba(255,255,255,0) 100%)",
 }
@@ -47,7 +39,8 @@ export const Margins = {
 
 // Fonts
 export const FontFamilies = {
-    Body: "'Space Grotesk', sans-serif;",
+    Body: "'Lato', sans-serif",
+    Code: "monospace",
 }
 
 export const FontSizes = {

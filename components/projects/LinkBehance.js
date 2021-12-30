@@ -10,7 +10,9 @@ function LinkBehance(props) {
     return (
         <Font.P>
             <Link href={props.href} target="_blank" rel="noreferrer noopener">
-                {UiTexts.LinkBehance}
+                {props.github
+                    ? "See the full project on Github"
+                    : UiTexts.LinkBehance}
             </Link>
         </Font.P>
     )
