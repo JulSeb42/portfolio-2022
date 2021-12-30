@@ -11,7 +11,7 @@ import UiTexts from "../data/UITexts"
 
 // Styles
 const Container = styled.div`
-    grid-column: 1 / 4;
+    grid-column: 1 / 4 !important;
     width: 100%;
     display: grid;
     grid-template-columns: 1fr;

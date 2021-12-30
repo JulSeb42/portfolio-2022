@@ -18,6 +18,7 @@ import Next from "../../components/projects/Next"
 import Section from "../../components/projects/Section"
 import FullBleed from "../../components/projects/FullBleed"
 import LinkBehance from "../../components/projects/LinkBehance"
+import Link from "../../components/utils/Link"
 
 const components = {
     h3: Font.H3,
@@ -29,6 +30,7 @@ const components = {
     Section,
     FullBleed,
     LinkBehance,
+    Link,
 }
 
 function ProjectPage({ frontMatter, mdxSource }) {
