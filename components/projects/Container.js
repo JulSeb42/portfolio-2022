@@ -21,6 +21,10 @@ const Wrapper = styled.main`
     & > * {
         grid-column: ${Variables.Container.Column};
     }
+
+    @media ${Variables.Breakpoints.Tablet} {
+        grid-template-columns: ${Variables.Container.TemplateTablet};
+    }
 `
 
 function Container(props) {

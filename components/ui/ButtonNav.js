@@ -16,7 +16,7 @@ const Button = styled.button`
     padding: 0;
     position: relative;
     line-height: ${Variables.LineHeight};
-    
+
     &:after {
         content: "";
         width: 0;
@@ -31,11 +31,43 @@ const Button = styled.button`
     &:hover:after {
         width: 100%;
     }
+
+    @media (hover: none) and (pointer: coarse) {
+        &:hover {
+            background-color: transparent;
+            backdrop-filter: blur(0);
+            border-color: transparent;
+            box-shadow: none;
+        }
+    }
+
+    @media ${Variables.Breakpoints.Mobile} {
+        font-size: 32px;
+        width: 70%;
+        text-align: center;
+
+        &.ButtonDelay1 {
+            transition-delay: 0.6s !important;
+        }
+
+        &.ButtonDelay2 {
+            transition-delay: 0.8s !important;
+        }
+
+        &.ButtonDelay3 {
+            transition-delay: 1s !important;
+        }
+    }
 `
 
 function ButtonNav(props) {
     return (
-        <Button as={props.href && Link} href={props.href} {...props}>
+        <Button
+            as={props.href && Link}
+            href={props.href}
+            className={`ButtonDelay${props.id}`}
+            {...props}
+        >
             {props.children}
         </Button>
     )

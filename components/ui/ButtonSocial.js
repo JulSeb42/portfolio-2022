@@ -40,6 +40,12 @@ export const SocialContainer = styled.div`
     a:not(:last-child) {
         margin-right: ${Variables.Margins.M};
     }
+
+    @media ${Variables.Breakpoints.Mobile} {
+        display: grid;
+        grid-template-columns: repeat(4, 48px);
+        gap: ${Variables.Margins.S};
+    }
 `
 
 function ButtonSocial(props) {

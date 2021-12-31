@@ -53,7 +53,7 @@ export const FontSizes = {
     TitlesS: "20px",
     Body: "16px",
     Nav: "18px",
-    Modal: "2vw",
+    Modal: "24px",
     Small: "14px",
 }
 

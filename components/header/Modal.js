@@ -1,5 +1,5 @@
 // Packages
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import styled from "styled-components"
 
 // Components
@@ -97,20 +97,31 @@ const Content = styled.div`
     grid-template-columns: 1fr;
     gap: ${Variables.Margins.M};
     box-shadow: ${Variables.Shadows.Modal};
+
+    @media ${Variables.Breakpoints.Tablet} {
+        width: 90%;
+    }
 `
 
 function Modal(props) {
     const [isOpen, setIsOpen] = useState(false)
     const open = isOpen ? "open" : ""
 
+    const [isStopped, setIsStopped] = useState(false)
+
+     useEffect(() => {
+         document.body.classList.toggle("stop-scrolling", isStopped)
+         document.querySelector("#burger").classList.toggle("hidden", isStopped)
+     }, [isStopped])
+
     const handleOpen = () => {
         setIsOpen(!isOpen)
-        document.body.classList.toggle("stop-scrolling")
+        setIsStopped(!isStopped)
     }
 
     return (
         <>
-            <ButtonNav onClick={handleOpen}>{props.title}</ButtonNav>
+            <ButtonNav onClick={handleOpen} id={props.title === "About" ? 2 : 3}>{props.title}</ButtonNav>
 
             <Container className={open}>
                 <Button aria-label="Close Modal" onClick={handleOpen}>

@@ -12,15 +12,20 @@ import Card from "../components/home/Card"
 import UiTexts from "../components/data/UITexts"
 
 export default function Home({ projects }) {
-    console.log(UiTexts.KeywordsHome)
     return (
-        <Page title="Home" description={UiTexts.DescHome} keywords={UiTexts.KeywordsHome}>
+        <Page
+            title="Home"
+            description={UiTexts.DescHome}
+            keywords={UiTexts.KeywordsHome}
+        >
             <Cover />
 
             <List>
                 {projects
                     .sort((a, b) => {
-                        return a.frontMatter.order < b.frontMatter.order ? -1 : 1
+                        return a.frontMatter.order < b.frontMatter.order
+                            ? -1
+                            : 1
                     })
                     .map((project, i) => (
                         <Card project={project} key={i} />

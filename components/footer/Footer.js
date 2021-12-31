@@ -25,6 +25,7 @@ const Container = styled.footer`
 
 const Row = styled.div`
     display: flex;
+    flex-wrap: wrap;
 
     & > span:first-child {
         margin-right: ${Variables.Margins.XXL};
@@ -47,6 +48,7 @@ const List = styled.ul`
     margin: 0;
     list-style: none;
     display: flex;
+    flex-wrap: wrap;
 
     li:not(:last-child) {
         margin-right: ${Variables.Margins.M};
