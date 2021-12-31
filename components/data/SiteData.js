@@ -9,7 +9,7 @@ const SiteData = {
 
     // Metadata
     Type: "designer_portfolio",
-    Cover: "/images/cover-og.png",
+    Cover: "/images/og-cover.png",
     Language: "en_EN",
     Keywords: [
         "Designer",

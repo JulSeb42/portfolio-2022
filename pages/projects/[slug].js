@@ -42,6 +42,7 @@ function ProjectPage({ frontMatter, mdxSource }) {
             title={frontMatter.title}
             description={frontMatter.description}
             keywords={frontMatter.keywords}
+            cover={`/covers/l-${frontMatter.cover}`}
         >
             <Cover frontMatter={frontMatter} />
 

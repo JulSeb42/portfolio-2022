@@ -20,6 +20,7 @@ function Page(props) {
                 title={props.title}
                 keywords={props.keywords}
                 description={props.description}
+                cover={props.cover}
             />
 
             {isLoading ? (
