@@ -1,5 +1,5 @@
 // Packages
-import React from "react"
+import React, { useState } from "react"
 import styled from "styled-components"
 import Link from "../utils/Link"
 
@@ -7,6 +7,7 @@ import Link from "../utils/Link"
 import * as Variables from "../styles/Variables"
 import Icon from "../ui/Icon"
 import UiTexts from "../data/UITexts"
+import Fade from "../ui/Fade"
 
 // Styles
 const Container = styled(Link)`
@@ -56,12 +57,30 @@ const Container = styled(Link)`
 const Text = styled.span``
 
 function Next(props) {
+    const [isLoaded, setIsLoaded] = useState(false)
+
+    setTimeout(() => {
+        setIsLoaded(true)
+    }, 1)
+
+    const loaded = isLoaded ? "loaded" : "not-loaded"
+
     return (
-        <Container href={`/projects/${props.href}`}>
-            <Text>{UiTexts.NextProject}</Text>
-            
-            <Icon name="arrow-right" color={Variables.Colors.White} size={24} className="icon" />
-        </Container>
+        <Fade>
+            <Container
+                href={`/projects/${props.href}`}
+                className={`${loaded} loaded-delay-0`}
+            >
+                <Text>{UiTexts.NextProject}</Text>
+
+                <Icon
+                    name="arrow-right"
+                    color={Variables.Colors.White}
+                    size={24}
+                    className="icon"
+                />
+            </Container>
+        </Fade>
     )
 }
 

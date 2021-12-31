@@ -1,11 +1,12 @@
 // Packages
-import React from "react"
+import React, { useState } from "react"
 import styled from "styled-components"
 import Link from "../utils/Link"
 
 // Components
 import * as Font from "../styles/Font"
 import * as Variables from "../styles/Variables"
+import Fade from "../ui/Fade"
 
 // Styles
 const Container = styled(Link)`
@@ -63,18 +64,31 @@ const Img = styled.div`
 `
 
 function Card(props) {
+    const [isLoaded, setIsLoaded] = useState(false)
+
+    setTimeout(() => {
+        setIsLoaded(true)
+    }, 1)
+
+    const loaded = isLoaded ? "loaded" : "not-loaded"
+
+    // className={`${loaded} loaded-delay-0`}
+
     return (
-        <Container
-            href={`/projects/${props.project.slug}`}
-            backgroundHover={props.project.frontMatter.coverHover}
-        >
-            <Img
-                background={props.project.frontMatter.cover}
-                className="background"
-            />
-            <Font.H2>{props.project.frontMatter.title}</Font.H2>
-            <Font.H4>{props.project.frontMatter.position}</Font.H4>
-        </Container>
+        <Fade>
+            <Container
+                href={`/projects/${props.project.slug}`}
+                backgroundHover={props.project.frontMatter.coverHover}
+                className={`${loaded} loaded-delay-0`}
+            >
+                <Img
+                    background={props.project.frontMatter.cover}
+                    className="background"
+                />
+                <Font.H2>{props.project.frontMatter.title}</Font.H2>
+                <Font.H4>{props.project.frontMatter.position}</Font.H4>
+            </Container>
+        </Fade>
     )
 }
 

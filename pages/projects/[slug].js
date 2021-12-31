@@ -19,6 +19,7 @@ import Section from "../../components/projects/Section"
 import FullBleed from "../../components/projects/FullBleed"
 import LinkBehance from "../../components/projects/LinkBehance"
 import Link from "../../components/utils/Link"
+import Fade from "../../components/ui/Fade"
 
 const components = {
     h3: Font.H3,
@@ -27,15 +28,21 @@ const components = {
     ul: Font.List,
     p: Font.P,
     small: Font.Small,
+    Font,
     Section,
     FullBleed,
     LinkBehance,
     Link,
+    Fade,
 }
 
 function ProjectPage({ frontMatter, mdxSource }) {
     return (
-        <Page title={frontMatter.title}>
+        <Page
+            title={frontMatter.title}
+            description={frontMatter.description}
+            keywords={frontMatter.keywords}
+        >
             <Cover frontMatter={frontMatter} />
 
             <Container>
@@ -43,7 +50,7 @@ function ProjectPage({ frontMatter, mdxSource }) {
 
                 <MDXRemote {...mdxSource} components={components} />
             </Container>
-            
+
             <Next href={frontMatter.nextProject} />
         </Page>
     )

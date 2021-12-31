@@ -1,21 +1,38 @@
 // Packages
-import React from "react"
+import React, { useState } from "react"
 
 // Components
 import AppHead from "./AppHead"
 import Header from "../header/Header"
 import Footer from "../footer/Footer"
+import Loader from "./Loader"
 
 function Page(props) {
+    const [isLoading, setIsLoading] = useState(true)
+
+    setTimeout(() => {
+        setIsLoading(false)
+    }, 2000)
+
     return (
         <>
-            <AppHead title={props.title} />
+            <AppHead
+                title={props.title}
+                keywords={props.keywords}
+                description={props.description}
+            />
 
-            <Header />
+            {isLoading ? (
+                <Loader />
+            ) : (
+                <>
+                    <Header />
 
-            {props.children}
+                    {props.children}
 
-            <Footer />
+                    <Footer />
+                </>
+            )}
         </>
     )
 }

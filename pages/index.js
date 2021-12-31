@@ -9,10 +9,12 @@ import Page from "../components/layouts/Page"
 import Cover from "../components/home/Cover"
 import List from "../components/home/List"
 import Card from "../components/home/Card"
+import UiTexts from "../components/data/UITexts"
 
 export default function Home({ projects }) {
+    console.log(UiTexts.KeywordsHome)
     return (
-        <Page title="Home">
+        <Page title="Home" description={UiTexts.DescHome} keywords={UiTexts.KeywordsHome}>
             <Cover />
 
             <List>

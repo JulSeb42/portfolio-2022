@@ -75,6 +75,9 @@ export const P = styled.p`
 export const Small = styled.small`
     font-size: ${Variables.FontSizes.Small};
     font-weight: ${Variables.FontWeights.Regular};
+    text-align: center;
+    width: 100%;
+    display: block;
 `
 
 export const List = styled.ul`

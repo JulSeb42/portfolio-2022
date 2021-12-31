@@ -6,6 +6,7 @@ import Link from "../utils/Link"
 // Components
 import * as Variables from "../styles/Variables"
 import * as Font from "../styles/Font"
+import Fade from "../ui/Fade"
 
 // Data
 import SiteData from "../data/SiteData"
@@ -76,7 +77,7 @@ const List = styled.ul`
 
 function Footer() {
     return (
-        <Container>
+        <Fade as={Container}>
             <Row>
                 <Col>
                     <Font.H3>{UiTexts.TextContact}</Font.H3>
@@ -112,7 +113,7 @@ function Footer() {
             <Row>
                 <Font.P>{UiTexts.CopyFooter}</Font.P>
             </Row>
-        </Container>
+        </Fade>
     )
 }
 

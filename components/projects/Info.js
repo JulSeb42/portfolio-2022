@@ -1,11 +1,12 @@
 // Packages
-import React from "react"
+import React, { useState } from "react"
 import styled from "styled-components"
 
 // Components
 import * as Font from "../styles/Font"
 import * as Variables from "../styles/Variables"
 import UiTexts from "../data/UITexts"
+import Fade from "../ui/Fade"
 
 // Styles
 const Container = styled.div`
@@ -34,21 +35,41 @@ const List = styled.ul`
 `
 
 function Info(props) {
+    const [isLoaded, setIsLoaded] = useState(false)
+
+    setTimeout(() => {
+        setIsLoaded(true)
+    }, 1)
+
+    const loaded = isLoaded ? "loaded" : "not-loaded"
     return (
         <Container>
             <Item>
-                <Font.H4>{UiTexts.TitleSkills}</Font.H4>
+                <Fade as={Font.H4} className={`${loaded} loaded-delay-0`}>
+                    {UiTexts.TitleSkills}
+                </Fade>
 
-                <List>
+                <List className={`${loaded} loaded-delay-1`}>
                     {props.frontMatter.skills.map((skill, i) => (
-                        <li key={i}>{skill}</li>
+                        <Fade as="li" key={i}>
+                            {skill}
+                        </Fade>
                     ))}
                 </List>
             </Item>
 
             <Item>
-                <Font.H4>{UiTexts.TitleDates}</Font.H4>
-                <Font.P>{props.frontMatter.dates}</Font.P>
+                <Fade>
+                    <Font.H4 className={`${loaded} loaded-delay-2`}>
+                        {UiTexts.TitleDates}
+                    </Font.H4>
+                </Fade>
+
+                <Fade>
+                    <Font.P className={`${loaded} loaded-delay-3`}>
+                        {props.frontMatter.dates}
+                    </Font.P>
+                </Fade>
             </Item>
         </Container>
     )

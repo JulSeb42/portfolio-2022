@@ -1,5 +1,5 @@
 // Packages
-import React from "react"
+import React, { useState } from "react"
 import styled from "styled-components"
 import Link from "../utils/Link"
 
@@ -8,6 +8,7 @@ import * as Variables from "../styles/Variables"
 import * as Font from "../styles/Font"
 import Picture from "../utils/Picture"
 import UiTexts from "../data/UITexts"
+import Fade from "../ui/Fade"
 
 // Styles
 const Container = styled.div`
@@ -34,36 +35,63 @@ const Video = styled.iframe`
 `
 
 function FullBleed(props) {
+    const [isLoaded, setIsLoaded] = useState(false)
+
+    setTimeout(() => {
+        setIsLoaded(true)
+    }, 1)
+
+    const loaded = isLoaded ? "loaded" : "not-loaded"
+
+    // className={`${loaded} loaded-delay-0`}
     return (
         <Container>
             {props.img ? (
                 props.href ? (
                     <>
-                        <Link
-                            href={props.href}
-                            target="_blank"
-                            rel="noreferrer noopener"
-                        >
-                            <Picture
-                                srcSmall={`/images/s-${props.img}`}
-                                srcMedium={`/images/m-${props.img}`}
-                                srcLarge={`/images/l-${props.img}`}
-                                alt={props.alt}
-                            />
-                        </Link>
+                        <Fade>
+                            <Link
+                                href={props.href}
+                                target="_blank"
+                                rel="noreferrer noopener"
+                            >
+                                <Picture
+                                    srcSmall={`/images/s-${props.img}`}
+                                    srcMedium={`/images/m-${props.img}`}
+                                    srcLarge={`/images/l-${props.img}`}
+                                    alt={props.alt}
+                                    className={`${loaded} loaded-delay-0`}
+                                />
+                            </Link>
+                        </Fade>
 
-                        <Font.Small>{UiTexts.TextVisit}</Font.Small>
+                        <Fade
+                            as={Font.Small}
+                            className={`${loaded} loaded-delay-1`}
+                        >
+                            {UiTexts.TextVisit}
+                        </Fade>
                     </>
                 ) : (
-                    <Picture
-                        srcSmall={`/images/s-${props.img}`}
-                        srcMedium={`/images/m-${props.img}`}
-                        srcLarge={`/images/l-${props.img}`}
-                        alt={props.alt}
-                    />
+                    <Fade>
+                        <Picture
+                            srcSmall={`/images/s-${props.img}`}
+                            srcMedium={`/images/m-${props.img}`}
+                            srcLarge={`/images/l-${props.img}`}
+                            alt={props.alt}
+                            className={`${loaded} loaded-delay-0`}
+                        />
+                    </Fade>
                 )
             ) : (
-                <Video src={props.video} frameBorder="0" allowFullScreen />
+                <Fade>
+                    <Video
+                        src={props.video}
+                        frameBorder="0"
+                        allowFullScreen
+                        className={`${loaded} loaded-delay-0`}
+                    />
+                </Fade>
             )}
         </Container>
     )

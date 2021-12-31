@@ -1,11 +1,12 @@
 // Packages
-import React from "react"
+import React, { useState } from "react"
 import styled from "styled-components"
 import Typed from "react-typed"
 
-// Styles
+// Components
 import * as Variables from "../styles/Variables"
 import * as Font from "../styles/Font"
+import Fade from "../ui/Fade"
 
 // Data
 import SiteData from "../data/SiteData"
@@ -27,10 +28,18 @@ const Content = styled.div`
 `
 
 function Cover(props) {
+    const [isLoaded, setIsLoaded] = useState(false)
+
+    setTimeout(() => {
+        setIsLoaded(true)
+    }, 1)
+
+    const loaded = isLoaded ? "loaded" : "not-loaded"
+
     return (
-        <Container>
+        <Fade as={Container}>
             <Content>
-                <Font.H3>
+                <Font.H3 className={`${loaded} loaded-delay-0`}>
                     <Typed
                         strings={[
                             UiTexts.Typed1,
@@ -43,11 +52,15 @@ function Cover(props) {
                     />
                 </Font.H3>
 
-                <Font.H1>Hi, I&apos;m {SiteData.Author}</Font.H1>
+                <Font.H1 className={`${loaded} loaded-delay-1`}>
+                    Hi, I&apos;m {SiteData.Author}
+                </Font.H1>
 
-                <Font.H5>{UiTexts.IntroHome}</Font.H5>
+                <Font.H5 className={`${loaded} loaded-delay-2`}>
+                    {UiTexts.IntroHome}
+                </Font.H5>
             </Content>
-        </Container>
+        </Fade>
     )
 }
 

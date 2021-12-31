@@ -17,6 +17,34 @@ const GlobalStyles = createGlobalStyle`
             overflow: hidden;
         }
     }
+
+    .not-loaded {
+        transform: translateX(-10px);
+        opacity: 0;
+        transition: ${Variables.Transitions.Fade};
+    }
+
+    .loaded {
+        transform: translateX(0);
+        opacity: 1;
+        transition: ${Variables.Transitions.Fade};
+    }
+
+    .loaded-delay-0 {
+        transition-delay: 0s;
+    }
+
+    .loaded-delay-1 {
+        transition-delay: 0.2s;
+    }
+
+    .loaded-delay-2 {
+        transition-delay: 0.4s;
+    }
+
+    .loaded-delay-3 {
+        transition-delay: 0.6s;
+    }
 `
 
 export default GlobalStyles

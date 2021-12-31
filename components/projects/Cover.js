@@ -7,6 +7,7 @@ import Typed from "react-typed"
 import * as Variables from "../styles/Variables"
 import * as Font from "../styles/Font"
 import Picture from "../utils/Picture"
+import Fade from "../ui/Fade"
 
 // Styles
 const Container = styled.div`
@@ -73,31 +74,51 @@ function Cover(props) {
         })
     }, [])
 
-    return (
-        <Container height={height} padding={padding}>
-            <Img
-                srcSmall={`/covers/s-${props.frontMatter.cover}`}
-                srcMedium={`/covers/m-${props.frontMatter.cover}`}
-                srcLarge={`/covers/l-${props.frontMatter.cover}`}
-                alt={`Cover ${props.frontMatter.title}`}
-            />
+    const [isLoaded, setIsLoaded] = useState(false)
 
-            <Content>
-                <Font.H1>{props.frontMatter.title}</Font.H1>
-                <Font.H2>
-                    <Typed
-                        strings={[
-                            props.frontMatter.subtitle,
-                            props.frontMatter.position,
-                            props.frontMatter.city,
-                        ]}
-                        typeSpeed={40}
-                        backSpeed={20}
-                        loop={true}
-                    />
-                </Font.H2>
-            </Content>
-        </Container>
+    setTimeout(() => {
+        setIsLoaded(true)
+    }, 1)
+
+    const loaded = isLoaded ? "loaded" : "not-loaded"
+
+    // className={`${loaded} loaded-delay-0`}
+
+    return (
+        <Fade>
+            <Container height={height} padding={padding}>
+                <Img
+                    srcSmall={`/covers/s-${props.frontMatter.cover}`}
+                    srcMedium={`/covers/m-${props.frontMatter.cover}`}
+                    srcLarge={`/covers/l-${props.frontMatter.cover}`}
+                    alt={`Cover ${props.frontMatter.title}`}
+                    className={`${loaded} loaded-delay-0`}
+                />
+
+                <Content>
+                    <Fade>
+                        <Font.H1 className={`${loaded} loaded-delay-1`}>
+                            {props.frontMatter.title}
+                        </Font.H1>
+                    </Fade>
+
+                    <Fade>
+                        <Font.H2 className={`${loaded} loaded-delay-2`}>
+                            <Typed
+                                strings={[
+                                    props.frontMatter.subtitle,
+                                    props.frontMatter.position,
+                                    props.frontMatter.city,
+                                ]}
+                                typeSpeed={40}
+                                backSpeed={20}
+                                loop={true}
+                            />
+                        </Font.H2>
+                    </Fade>
+                </Content>
+            </Container>
+        </Fade>
     )
 }
 
