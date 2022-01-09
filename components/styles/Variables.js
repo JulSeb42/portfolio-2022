@@ -44,7 +44,7 @@ export const FontFamilies = {
 }
 
 export const FontSizes = {
-    TitlesXL: "6vw",
+    TitlesXL: "5.9vw",
     TitlesXLMobile: "32px",
     TitlesL: "3vw",
     TitlesLMobile: "24px",
