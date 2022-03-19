@@ -41,11 +41,7 @@ function Cover(props) {
             <Content>
                 <Font.H3 className={`${loaded} loaded-delay-0`}>
                     <Typed
-                        strings={[
-                            UiTexts.Typed1,
-                            UiTexts.Typed2,
-                            UiTexts.Typed3,
-                        ]}
+                        strings={UiTexts.Typed}
                         typeSpeed={40}
                         backSpeed={20}
                         loop={true}

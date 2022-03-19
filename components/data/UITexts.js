@@ -16,13 +16,11 @@ const UiTexts = {
     KeywordsHome: "ux, ui, design, front end, designer, portfolio, berlin",
     IntroHome:
         "I'm a UX engineer, formerly UI designer who decided to join the dark side of the Force.",
-    Typed1: "UX Engineer",
-    Typed2: "UI Designer",
-    Typed3: "Front End Developer",
+    Typed: ["UX Engineer", "UI Designer", "Front End Developer"],
 
     // About
     About1: "Hi I'm Julien, a French UX Engineer based in Berlin, Germany.",
-    About2: "Currently studying Web Development at Ironhack and formerly Product Designer at Nielsen, I create cool interfaces, code websites, and usually drink tea.",
+    About2: "Currently working as Front end developer at Venture Leap and formerly Product Designer at Nielsen, I create cool interfaces, code websites, and usually drink tea.",
 
     // Contact
     Contact1:

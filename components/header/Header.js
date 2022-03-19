@@ -166,6 +166,12 @@ function Header() {
         setIsBurgerOpen(!isBurgerOpen)
     }
 
+    useEffect(() => {
+        isOpen
+            ? document.body.classList.add("stop-scrolling")
+            : document.body.classList.remove("stop-scrolling")
+    })
+
     return (
         <Container topPosition={topPosition}>
             <Logo href="/">

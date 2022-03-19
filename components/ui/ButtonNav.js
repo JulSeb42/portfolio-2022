@@ -39,6 +39,10 @@ const Button = styled.button`
             border-color: transparent;
             box-shadow: none;
         }
+
+        &:hover:after {
+            width: 0;
+        }
     }
 
     @media ${Variables.Breakpoints.Mobile} {

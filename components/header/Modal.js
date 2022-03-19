@@ -101,30 +101,41 @@ const Content = styled.div`
     @media ${Variables.Breakpoints.Tablet} {
         width: 90%;
     }
+
+    @media ${Variables.Breakpoints.Mobile} {
+        max-height: 80vh;
+        overflow-y: scroll;
+    }
 `
 
 function Modal(props) {
     const [isOpen, setIsOpen] = useState(false)
     const open = isOpen ? "open" : ""
 
-    const [isStopped, setIsStopped] = useState(false)
+    useEffect(() => {
+        isOpen
+            ? document.body.classList.add("stop-scrolling")
+            : document.body.classList.remove("stop-scrolling")
 
-     useEffect(() => {
-         document.body.classList.toggle("stop-scrolling", isStopped)
-         document.querySelector("#burger").classList.toggle("hidden", isStopped)
-     }, [isStopped])
-
-    const handleOpen = () => {
-        setIsOpen(!isOpen)
-        setIsStopped(!isStopped)
-    }
+        isOpen
+            ? document.querySelector("#burger").classList.add("hidden")
+            : document.querySelector("#burger").classList.remove("hidden")
+    })
 
     return (
         <>
-            <ButtonNav onClick={handleOpen} id={props.title === "About" ? 2 : 3}>{props.title}</ButtonNav>
+            <ButtonNav
+                onClick={() => setIsOpen(!isOpen)}
+                id={props.title === "About" ? 2 : 3}
+            >
+                {props.title}
+            </ButtonNav>
 
             <Container className={open}>
-                <Button aria-label="Close Modal" onClick={handleOpen}>
+                <Button
+                    aria-label="Close Modal"
+                    onClick={() => setIsOpen(!isOpen)}
+                >
                     <Icon
                         name="close"
                         size={48}
