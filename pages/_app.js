@@ -1,11 +1,8 @@
-// Packages
-import React from "react"
-
-// Styles
-import "../styles/globals.css"
+// Imports
+import "../styles/index.css"
 import GlobalStyles from "../components/styles/GlobalStyles"
 
-function MyApp({ Component, pageProps }) {
+const MyApp = ({ Component, pageProps }) => {
     return (
         <>
             <GlobalStyles />

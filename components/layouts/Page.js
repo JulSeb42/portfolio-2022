@@ -1,14 +1,14 @@
-// Packages
-import React, { useState } from "react"
+// Imports
+import { useState } from "react"
 
-// Components
 import AppHead from "./AppHead"
 import Header from "../header/Header"
-import Footer from "../footer/Footer"
+import Footer from "../Footer"
 import Loader from "./Loader"
 
-function Page(props) {
-    const [isLoading, setIsLoading] = useState(true)
+const Page = ({ title, description, keywords, children }) => {
+    // const [isLoading, setIsLoading] = useState(true)
+    const [isLoading, setIsLoading] = useState(false)
 
     setTimeout(() => {
         setIsLoading(false)
@@ -17,10 +17,9 @@ function Page(props) {
     return (
         <>
             <AppHead
-                title={props.title}
-                keywords={props.keywords}
-                description={props.description}
-                cover={props.cover}
+                title={title}
+                description={description}
+                keywords={keywords}
             />
 
             {isLoading ? (
@@ -29,7 +28,7 @@ function Page(props) {
                 <>
                     <Header />
 
-                    {props.children}
+                    {children}
 
                     <Footer />
                 </>

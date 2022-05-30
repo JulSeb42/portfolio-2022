@@ -1,39 +1,42 @@
-// Packages
-import React from "react"
+// Imports
 import fs from "fs"
 import path from "path"
 import matter from "gray-matter"
+import { v4 as uuid } from "uuid"
 
-// Components
 import Page from "../components/layouts/Page"
 import Cover from "../components/home/Cover"
-import List from "../components/home/List"
-import Card from "../components/home/Card"
-import UiTexts from "../components/data/UITexts"
+import Grid from "../components/layouts/Grid"
+import CardProject from "../components/home/CardProject"
+import Variables from "../components/styles/Variables"
 
-export default function Home({ projects }) {
+import uiTexts from "../data/ui-texts"
+
+const Home = ({ projects }) => {
     return (
         <Page
             title="Home"
-            description={UiTexts.DescHome}
-            keywords={UiTexts.KeywordsHome}
+            description={uiTexts.descHome}
+            keywords={uiTexts.keywordsHome}
         >
             <Cover />
 
-            <List>
+            <Grid as="main" gap={Variables.Spacers.L} col={2} padding={Variables.Spacers.XXL} projects>
                 {projects
                     .sort((a, b) => {
                         return a.frontMatter.order < b.frontMatter.order
                             ? -1
                             : 1
                     })
-                    .map((project, i) => (
-                        <Card project={project} key={i} />
+                    .map(project => (
+                        <CardProject project={project} key={uuid()} />
                     ))}
-            </List>
+            </Grid>
         </Page>
     )
 }
+
+export default Home
 
 export const getStaticProps = async () => {
     const files = fs.readdirSync(path.join("projects"))

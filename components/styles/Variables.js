@@ -1,106 +1,108 @@
-// Colors
-export const Colors = {
-    Background: "#FFF",
-    Font: "#0A0A0A",
-    White: "#FFF",
-    White70: "rgba(255, 255, 255, 0.7)",
-    White20: "rgba(255, 255, 255, 0.2)",
-    White5: "rgba(255, 255, 255, 0.05)",
-    Black: "#0A0B08",
-    DarkGray: "#333",
-    DarkBlue: "#001429",
-    Blue: "#14BDEB",
+const Variables = {
+    // Colors
+    Colors: {
+        Background: "var(--color-background)",
+        Font: "var(--color-font)",
+        White: "var(--color-white)",
+        White70: "var(--color-white-70)",
+        White20: "var(--color-white-20)",
+        White5: "var(--color-white-5)",
+        Black: "var(--color-black)",
+        DarkGray: "var(--color-dark-gray)",
+        DarkBlue: "var(--color-dark-blue)",
+        Blue: "var(--color-blue)",
+        Overlay: "var(--color-overlay)",
+    },
 
-    Overlay:
-        "linear-gradient(0deg, rgba(0,0,0,0.7) 0%, rgba(255,255,255,0) 100%)",
+    // Shadows
+    Shadows: {
+        Button: "var(--shadow-button)",
+        Modal: "var(--shadow-modal)",
+    },
+
+    // Effects
+    Effects: {
+        Blur: "backdrop-filter: var(--effect-blur)",
+    },
+
+    // Spacers
+    Spacers: {
+        XXL: "var(--spacer-xxl)",
+        XL: "var(--spacer-xl)",
+        L: "var(--spacer-l)",
+        M: "var(--spacer-m)",
+        S: "var(--spacer-s)",
+        XS: "var(--spacer-xs)",
+        XXS: "var(--spacer-xxs)",
+    },
+
+    // Font families
+    FontFamilies: {
+        Body: "var(--font-family-body)",
+        Code: "var(--font-family-code)",
+    },
+
+    // Font weights
+    FontWeights: {
+        Regular: "var(--font-weight-regular)",
+        Bold: "var(--font-weight-bold)",
+        Black: "var(--font-weight-black)",
+    },
+
+    // Font sizes
+    FontSizes: {
+        Titles: {
+            Desktop: {
+                XL: "var(--font-size-title-xl)",
+                L: "var(--font-size-title-l)",
+                M: "var(--font-size-title-m)",
+                S: "var(--font-size-title-s)",
+            },
+            Mobile: {
+                XL: "var(--font-size-title-xl-mobile)",
+                L: "var(--font-size-title-l-mobile)",
+                M: "var(--font-size-title-m-mobile)",
+            },
+        },
+        Body: "var(--font-size-body)",
+        Nav: "var(--font-size-nav)",
+        Modal: "var(--font-size-modal)",
+        Small: "var(--font-size-small)",
+    },
+
+    // Line height
+    LineHeight: "var(--line-height)",
+
+    // Radiuses
+    Radiuses: {
+        XXL: "var(--radius-xxl)",
+        XL: "var(--radius-xl)",
+        L: "var(--radius-l)",
+        M: "var(--radius-m)",
+        S: "var(--radius-s)",
+        XS: "var(--radius-xs)",
+        Round: "var(--radius-round)",
+    },
+
+    // Container
+    Container: {
+        MainWidth: "var(--main-width)",
+        Template: "var(--container-template)",
+    },
+
+    // Transitions
+    Transitions: {
+        Short: "var(--transition-short)",
+        Long: "var(--transition-long)",
+        Bezier: "var(--transition-bezier)",
+        Fade: "var(--transition-fade)",
+    },
+
+    // Breakpoints
+    Breakpoints: {
+        Mobile: "(max-width: 600px)",
+        Tablet: "(max-width: 1024px)",
+    },
 }
 
-// Shadows
-export const Shadows = {
-    Button: "0px 10px 20px rgba(0, 0, 0, 0.1), inset 0px 0px 0px 0.5px rgba(255, 255, 255, 0.2)",
-    Modal: "0px 1px 3px rgba(0, 0, 0, 0.1), 0px 20px 40px rgba(0, 0, 0, 0.2), inset 0px 0px 0px 0.5px rgba(255, 255, 255, 0.5)",
-}
-
-// Effects
-export const Effects = {
-    Blur: "backdrop-filter: blur(20px)",
-}
-
-// Margins
-export const Margins = {
-    XXL: "48px",
-    XL: "32px",
-    L: "24px",
-    M: "16px",
-    S: "12px",
-    XS: "8px",
-    XXS: "4px",
-}
-
-// Fonts
-export const FontFamilies = {
-    Body: "'Lato', sans-serif",
-    Code: "monospace",
-}
-
-export const FontSizes = {
-    TitlesXL: "5.9vw",
-    TitlesXLMobile: "32px",
-    TitlesL: "3vw",
-    TitlesLMobile: "24px",
-    TitlesM: "32px",
-    TitlesMMobile: "20px",
-    TitlesS: "20px",
-    Body: "16px",
-    Nav: "18px",
-    Modal: "24px",
-    Small: "14px",
-}
-
-// Font weights
-export const FontWeights = {
-    Regular: 400,
-    Medium: 700,
-    Bold: 900,
-}
-
-// Line height
-export const LineHeight = 1.5
-
-export const Radiuses = {
-    XL: "16px",
-    L: "12px",
-    M: "8px",
-    S: "4px",
-    Round: "99em",
-}
-
-// Container template
-export const Container = {
-    Template: "1fr 600px 1fr",
-    Column: 2,
-    Padding: `${Margins.XXL} 0`,
-
-    TemplateTablet: "1fr",
-    ColumnTablet: 1,
-    PaddingTablet: `${Margins.XXL} 10vw`,
-}
-
-// Transitions
-export const Transitions = {
-    Short: "all .2s ease",
-    Long: "all .5s ease",
-    Fade: "all 1s ease",
-    Bezier: "all 0.5s cubic-bezier(0.25, 0.75, 0, 0.66)",
-}
-
-// Media queries
-const DevicesSizes = {
-    Mobile: "600px",
-    Tablet: "768px",
-}
-
-export const Breakpoints = {
-    Mobile: `(max-width: ${DevicesSizes.Mobile})`,
-    Tablet: `(max-width: ${DevicesSizes.Tablet})`,
-}
+export default Variables

@@ -1,62 +1,79 @@
-// Packages
-import React from "react"
+// Imports
 import Head from "next/head"
+import { useRouter } from "next/router"
+import { v4 as uuid } from "uuid"
+import { slugify } from "js-utils-julseb"
 
-// Data
-import SiteData from "../data/SiteData"
+import siteData from "../../data/site-data"
 
-export default function AppHead(props) {
-    const Og = [
+const AppHead = ({ title, description, keywords, cover }) => {
+    const router = useRouter()
+
+    const meta = [
         {
-            Property: "og:type",
-            Content: SiteData.Type,
+            name: "viewport",
+            content: "width=device-width, initial-scale=1",
         },
         {
-            Property: "og:site_name",
-            Content: SiteData.Title,
+            name: "description",
+            content: description,
         },
         {
-            Property: "og:locale",
-            Content: SiteData.Language,
+            name: "author",
+            content: siteData.author,
+        },
+        {
+            name: "keywords",
+            content: `${siteData.keywords}${keywords ? `, ${keywords}` : ""}`,
+        },
+        {
+            property: "og:title",
+            content: title,
+        },
+        {
+            property: "og:url",
+            content:
+                router.pathname === "/"
+                    ? siteData.url
+                    : `${siteData.url}/projects/${slugify(title)}`,
+        },
+        {
+            property: "og:image",
+            content: cover ? cover : siteData.cover,
+        },
+        {
+            property: "og:type",
+            content: siteData.type,
+        },
+        {
+            property: "og:site_name",
+            content: siteData.title,
+        },
+        {
+            property: "og:locale",
+            content: siteData.language,
         },
     ]
 
     return (
         <Head>
             <title>
-                {props.title} | {SiteData.Title}
+                {title} | {siteData.title}
             </title>
             <meta content="IE=edge" httpEquiv="X-UA-Compatible" />
-            <meta
-                content="width=device-width, initial-scale=1"
-                name="viewport"
-            />
-            <meta name="description" content={props.description} />
-            <meta name="author" content={SiteData.Author} />
-            <meta
-                name="keywords"
-                content={SiteData.Keywords + props.keywords}
-            />
-            <meta property="og:title" content={props.title} />
-            <meta
-                property="og:url"
-                content={
-                    props.title === "Home"
-                        ? SiteData.Url
-                        : `${SiteData.Url}/projects/${props.title
-                              .toLowerCase()
-                              .replace(" ", "-")}`
-                }
-                // content={props.title === "Home" ? SiteData.Url : `${SiteData.Url}`}
-            />
-            <meta
-                property="og:image"
-                content={props.title === "Home" ? SiteData.Cover : props.cover}
-            />
-            {Og.map(({ Property, Content }) => (
-                <meta property={Property} content={Content} key={Property} />
+
+            {meta.map(meta => (
+                <meta
+                    name={meta.name && meta.name}
+                    property={meta.property && meta.property}
+                    content={meta.content}
+                    key={uuid()}
+                />
             ))}
-            <link href={`/${SiteData.Favicon}`} rel="shortcut icon" />
+
+            <link href={`/${siteData.favicon}`} rel="shortcut icon" />
         </Head>
     )
 }
+
+export default AppHead

@@ -1,11 +1,10 @@
-// Packages
+// Imports
 import { createGlobalStyle } from "styled-components"
-import * as Variables from "./Variables"
 
-// Styles
+import Variables from "./Variables"
+
 const GlobalStyles = createGlobalStyle`
-    html,
-    body {
+    html, body {
         font-family: ${Variables.FontFamilies.Body};
         line-height: ${Variables.LineHeight};
         background-color: ${Variables.Colors.Background};
@@ -19,7 +18,7 @@ const GlobalStyles = createGlobalStyle`
     }
 
     .not-loaded {
-        transform: translateX(-10px);
+        transform: translateX(calc(${Variables.Spacers.S} * -1));
         opacity: 0;
         transition: ${Variables.Transitions.Fade};
     }

@@ -1,13 +1,13 @@
-// Packages
-import React, { useState } from "react"
-import Link from "../utils/Link"
+// Imports
+import { useState } from "react"
 
-// Components
-import * as Font from "../styles/Font"
-import UiTexts from "../data/UITexts"
+import LinkHover from "../ui/LinkHover"
 import Fade from "../ui/Fade"
+import { P } from "../styles/Font"
 
-function LinkBehance(props) {
+import uiTexts from "../../data/ui-texts"
+
+const LinkBehance = ({ href, github }) => {
     const [isLoaded, setIsLoaded] = useState(false)
 
     setTimeout(() => {
@@ -17,12 +17,10 @@ function LinkBehance(props) {
     const loaded = isLoaded ? "loaded" : "not-loaded"
 
     return (
-        <Fade as={Font.P} className={`${loaded} loaded-delay-0`}>
-            <Link href={props.href} target="_blank" rel="noreferrer noopener">
-                {props.github
-                    ? "See the full project on Github"
-                    : UiTexts.LinkBehance}
-            </Link>
+        <Fade as={P} className={`${loaded} loaded-delay-0`}>
+            <LinkHover href={href} blank>
+                {github ? uiTexts.linkGithub : uiTexts.linkBehance}
+            </LinkHover>
         </Fade>
     )
 }

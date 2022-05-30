@@ -1,5 +1,8 @@
+// Imports
 import Document, { Html, Head, Main, NextScript } from "next/document"
 import { ServerStyleSheet } from "styled-components"
+
+import siteData from "../data/site-data"
 
 class MyDocument extends Document {
     static async getInitialProps(ctx) {
@@ -30,7 +33,7 @@ class MyDocument extends Document {
 
     render() {
         return (
-            <Html lang="en">
+            <Html lang={siteData.language}>
                 <Head />
                 <body>
                     <Main />

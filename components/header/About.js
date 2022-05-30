@@ -1,46 +1,29 @@
-// Packages
-import React from "react"
-import styled from "styled-components"
-
-// Components
+// Imports
 import Modal from "./Modal"
-import ButtonCv from "../ui/ButtonCv"
-import * as Variables from "../styles/Variables"
+import Flexbox from "../layouts/Flexbox"
+import ButtonCv from "./ButtonCv"
 
-// Data
-import UiTexts from "../data/UITexts"
-import CvLinks from "../data/CvLinks"
+import uiTexts from "../../data/ui-texts"
+import cvLinks from "../../data/cv-links"
 
-// Styles
-const ButtonsContainer = styled.div`
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    flex-wrap: wrap;
-
-    a:not(:last-child) {
-        margin-right: ${Variables.Margins.S};
-    }
-`
-
-function About() {
+const About = () => {
     return (
         <Modal title="About">
-            <p className="delay-1">{UiTexts.About1}</p>
-            <p className="delay-2">{UiTexts.About2}</p>
+            <p className="delay-1">{uiTexts.about1}</p>
+            <p className="delay-2">{uiTexts.about2}</p>
 
-            <ButtonsContainer className="delay-3">
-                {CvLinks.map(cv => (
+            <Flexbox className="delay-3">
+                {cvLinks.map(link => (
                     <ButtonCv
-                        href={cv.Url}
-                        key={cv.Url}
+                        href={link.url}
                         target="_blank"
                         rel="noreferrer noopener"
+                        key={link.url}
                     >
-                        {UiTexts.ButtonCv} ({cv.Lang.toUpperCase()})
+                        {uiTexts.buttonCv} ({link.lang.toUpperCase()})
                     </ButtonCv>
                 ))}
-            </ButtonsContainer>
+            </Flexbox>
         </Modal>
     )
 }

@@ -1,24 +1,20 @@
-// Packages
-import React from "react"
+// Imports
 import { serialize } from "next-mdx-remote/serialize"
 import { MDXRemote } from "next-mdx-remote"
 import fs from "fs"
 import path from "path"
 import matter from "gray-matter"
 
-// Components
-import * as Font from "../../components/styles/Font"
 import Page from "../../components/layouts/Page"
-import Cover from "../../components/projects/Cover"
+import CoverProject from "../../components/projects/CoverProject"
+import Intro from "../../components/projects/Intro"
 import Container from "../../components/projects/Container"
-import Info from "../../components/projects/Info"
 import Next from "../../components/projects/Next"
 
-// Components MDX
+import * as Font from "../../components/styles/Font"
 import Section from "../../components/projects/Section"
 import FullBleed from "../../components/projects/FullBleed"
 import LinkBehance from "../../components/projects/LinkBehance"
-import Link from "../../components/utils/Link"
 import Fade from "../../components/ui/Fade"
 
 const components = {
@@ -32,11 +28,10 @@ const components = {
     Section,
     FullBleed,
     LinkBehance,
-    Link,
     Fade,
 }
 
-function ProjectPage({ frontMatter, mdxSource }) {
+const Project = ({ frontMatter, mdxSource }) => {
     return (
         <Page
             title={frontMatter.title}
@@ -44,20 +39,20 @@ function ProjectPage({ frontMatter, mdxSource }) {
             keywords={frontMatter.keywords}
             cover={`/covers/l-${frontMatter.cover}`}
         >
-            <Cover frontMatter={frontMatter} />
+            <CoverProject frontMatter={frontMatter} />
 
             <Container>
-                <Info frontMatter={frontMatter} />
+                <Intro frontMatter={frontMatter} />
 
                 <MDXRemote {...mdxSource} components={components} />
             </Container>
 
-            <Next href={frontMatter.nextProject} />
+            <Next href={`/projects/${frontMatter.nextProject}`} />
         </Page>
     )
 }
 
-export default ProjectPage
+export default Project
 
 export const getStaticPaths = async () => {
     const files = fs.readdirSync(path.join("projects"))

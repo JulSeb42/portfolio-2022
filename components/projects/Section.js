@@ -1,20 +1,12 @@
-// Packages
-import React, { useState } from "react"
-import styled from "styled-components"
+// Imports
+import { useState } from "react"
 
-// Components
-import * as Font from "../styles/Font"
-import * as Variables from "../styles/Variables"
+import { H3 } from "../styles/Font"
+import Grid from "../layouts/Grid"
+import Variables from "../styles/Variables"
 import Fade from "../ui/Fade"
 
-// Styles
-const Container = styled.div`
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: ${Variables.Margins.XS};
-`
-
-function Section(props) {
+const Section = ({ title, children }) => {
     const [isLoaded, setIsLoaded] = useState(false)
 
     setTimeout(() => {
@@ -23,14 +15,12 @@ function Section(props) {
 
     const loaded = isLoaded ? "loaded" : "not-loaded"
 
-    // className={`${loaded} loaded-delay-0`}
-
     return (
-        <Container className={`${loaded} loaded-delay-0`}>
-            {props.title && <Fade as={Font.H3}>{props.title}</Fade>}
+        <Grid className={`${loaded} loaded-delay-0`} gap={Variables.Spacers.XS}>
+            {title && <Fade as={H3}>{title}</Fade>}
 
-            {props.children}
-        </Container>
+            {children}
+        </Grid>
     )
 }
 
