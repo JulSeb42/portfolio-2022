@@ -7,8 +7,7 @@ import Footer from "../Footer"
 import Loader from "./Loader"
 
 const Page = ({ title, description, keywords, children }) => {
-    // const [isLoading, setIsLoading] = useState(true)
-    const [isLoading, setIsLoading] = useState(false)
+    const [isLoading, setIsLoading] = useState(true)
 
     setTimeout(() => {
         setIsLoading(false)
