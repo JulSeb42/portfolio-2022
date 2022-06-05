@@ -6,7 +6,7 @@ import Header from "../header/Header"
 import Footer from "../Footer"
 import Loader from "./Loader"
 
-const Page = ({ title, description, keywords, children }) => {
+const Page = ({ title, description, keywords, children, cover }) => {
     const [isLoading, setIsLoading] = useState(true)
 
     setTimeout(() => {
@@ -19,6 +19,7 @@ const Page = ({ title, description, keywords, children }) => {
                 title={title}
                 description={description}
                 keywords={keywords}
+                cover={cover}
             />
 
             {isLoading ? (
