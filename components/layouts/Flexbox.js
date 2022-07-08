@@ -8,9 +8,10 @@ const Flexbox = styled.div`
     align-items: ${({ align }) => align};
     justify-content: ${({ justify }) => justify};
     flex-wrap: ${({ wrap }) => wrap};
-    gap: ${({ gap }) => stringifyPx(gap)};
-    padding: ${({ padding }) => stringifyPx(padding)};
-    margin: ${({ margin }) => stringifyPx(margin)};
+    gap: ${({ gap }) => gap && stringifyPx(gap)};
+    padding: ${({ padding }) => padding && stringifyPx(padding)};
+    margin: ${({ margin }) => margin && stringifyPx(margin)};
+    flex-direction: ${({ direction }) => direction};
 `
 
 Flexbox.propTypes = {

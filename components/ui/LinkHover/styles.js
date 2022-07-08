@@ -24,6 +24,12 @@ const Container = styled.a`
     &:hover:after {
         width: 100%;
     }
+
+    @media ${Variables.Breakpoints.Touch} {
+        &:after:hover {
+            width: 0;
+        }
+    }
 `
 
 export { Container }

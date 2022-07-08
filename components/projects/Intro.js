@@ -1,5 +1,5 @@
 // Imports
-import React, { useState } from "react"
+import React, { useState, useEffect, useLayoutEffect } from "react"
 import { v4 as uuid } from "uuid"
 
 import { H4, P } from "../styles/Font"
@@ -21,8 +21,28 @@ const Intro = ({ frontMatter }) => {
 
     const loaded = isLoaded ? "loaded" : "not-loaded"
 
+    const [col, setCol] = useState("80% 20%")
+
+    const colFunc = () => {
+        if (window.innerWidth < 600) {
+            setCol("1fr")
+        } else {
+            setCol("80% 20%")
+        }
+    }
+
+    useEffect(() => {
+        colFunc()
+    }, [])
+
+    useLayoutEffect(() => {
+        window.addEventListener("resize", () => {
+            colFunc()
+        })
+    })
+
     return (
-        <Grid col="80% 20%" gap={Variables.Spacers.L}>
+        <Grid col={col} gap={Variables.Spacers.L}>
             <Grid gap={Variables.Spacers.XXS}>
                 <Fade as={H4} className={`${loaded} loaded-delay-0`}>
                     {uiTexts.titleSkills}

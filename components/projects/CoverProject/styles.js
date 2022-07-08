@@ -11,6 +11,10 @@ const Container = styled.div`
     position: relative;
     overflow: hidden;
     border: ${Variables.Spacers.XXL} solid ${Variables.Colors.White};
+
+    @media ${Variables.Breakpoints.Mobile} {
+        border-width: ${Variables.Spacers.L};
+    }
 `
 
 const Image = styled(Picture)`

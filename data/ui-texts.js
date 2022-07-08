@@ -12,7 +12,7 @@ const uiTexts = {
     // Homepage
     titleHome: "Home",
     descHome:
-        "Homepage of Julien Sebag's portfolio, UX / UI / Web Designer based in Berlin, Germany.",
+        "Homepage of Julien Sebag's portfolio, UX / UI / Web Designer based in Warsaw, Poland.",
     keywordsHome: "ux, ui, design, front end, designer, portfolio, berlin",
     headingHome: `Hi, I'm ${siteData.author}`,
     introHome:
@@ -20,14 +20,14 @@ const uiTexts = {
     typed: ["UX Engineer", "UI Designer", "Front End Developer"],
 
     // About
-    about1: "Hi I'm Julien, a French UX Engineer based in Berlin, Germany.",
-    about2: "Currently working as Front end developer at Venture Leap and formerly Product Designer at Nielsen, I create cool interfaces, code websites, and usually drink tea.",
+    about1: "Hi I'm Julien, a French UX Engineer based in Warsaw, Poland.",
+    about2: "Currently working as Front end developer at Nielsen and formerly Product Designer at Nielsen too, I create cool interfaces, code websites, and usually drink tea.",
 
     // Contact
     contact1:
         "You like what you see and want to work with me, have a coffee or just have a chat?",
     contact2:
-        "At the moment, I’m based in Berlin, Germany. You can contact me anytime via any social network or by email!",
+        "At the moment, I’m based in Warsaw, Poland. You can contact me anytime via any social network or by email!",
 
     // Projects
     titleSkills: "Technologies",
